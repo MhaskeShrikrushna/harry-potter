@@ -1,0 +1,82 @@
+<div *ngIf="erroMessage" class="alert alert-danger" role="alert">
+    A simple danger alert—check it out!
+  </div>
+  <div class="row">
+    <div>
+      <div>
+        <h2>Filters</h2>
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="input-group">
+              <span class="input-group-text" id="inputGroup-sizing-sm"
+                >Title</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Sizing example input"
+                [(ngModel)]="movieTitle"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+  
+          <div class="col-sm-2">
+            <div class="input-group">
+              <span class="input-group-text" id="inputGroup-sizing-sm"
+                >Release Year</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Sizing example input"
+                [(ngModel)]="releaseYear"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div >
+      <div>
+        <ul class="list-group list-group-flush removeLiDot">
+          <li
+            *ngFor="let movie of listOfMovies | search : movieTitle : releaseYear"
+          >
+            <div class="list-group">
+              <span
+                href="#"
+                class="list-group-item list-group-item-action"
+                aria-current="true"
+              >
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ movie.title }}</h5>
+  
+                  <small
+                    ><button class="btn btn-light">
+                      <span [routerLink]="[movie.id]">Details</span>
+                    </button></small
+                  >
+                </div>
+                <p class="mb-1">
+                  <span class="spanMargin5"
+                    >Release Date: {{ movie.release_date }}
+                  </span>
+                  <span class="spanMargin5">
+                    Budget: {{ movie.budget | dollarConverter }}</span
+                  >
+                  <span class="spanMargin5">
+                    Duration: {{ movie.duration| minutesToHour }}</span
+                  >
+                </p>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

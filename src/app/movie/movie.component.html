@@ -1,0 +1,50 @@
+<button
+  class="list-group-item cursorpointer"
+  type="button"
+  href="#"
+  (click)="backToHome()"
+>
+  <i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Back
+</button>
+<div class="row">
+  <div  style="width: 100%">
+    <div class="card-header">
+      <strong>{{ movieDetails.title }}</strong>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-sm-3">
+          <img alt="Movie poster" src="{{ movieDetails.poster }}" />
+        </div>
+        <div class="col-md-9"><b>Summary : </b>{{ movieDetails.summary }}</div>
+      </div>
+      <div class="row">
+        <span><h3 class="centerAlign">Details</h3></span>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="table-active fw-bold">Box Office</td>
+              <td>{{ movieDetails.box_office | dollarConverter }}</td>
+            </tr>
+            <tr>
+              <td class="table-active fw-bold">Budget</td>
+              <td>{{ movieDetails.budget | dollarConverter }}</td>
+            </tr>
+            <tr>
+              <td class="table-active fw-bold">Duration</td>
+              <td>{{ movieDetails.duration | minutesToHour }}</td>
+            </tr>
+            <tr>
+              <td class="table-active fw-bold">Producers</td>
+              <td>{{ movieDetails.producers }}</td>
+            </tr>
+            <tr>
+              <td class="table-active fw-bold">Cinematographers</td>
+              <td>{{ movieDetails.cinematographers }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
